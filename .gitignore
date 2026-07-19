@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.superpowers/
+.claude/
+.codex/
+.traycer/
+docs/superpowers/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+vite-*.log
