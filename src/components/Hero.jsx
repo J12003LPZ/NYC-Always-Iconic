@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section id="top" ref={ref} className="relative min-h-[860px] overflow-hidden bg-ink text-white lg:min-h-[920px]">
       <motion.div style={{ scale, y: imageY }} className="absolute inset-0 origin-center">
-        <video src="/videos/brooklyn_bridge_perfect_loop.mp4" autoPlay loop muted playsInline preload="auto" aria-hidden="true" className="h-full w-full object-cover object-[62%_center]" />
+        <video src="/videos/brooklyn_bridge_hero.mp4" autoPlay loop muted playsInline preload="auto" aria-hidden="true" onLoadedData={event => { event.currentTarget.play().catch(() => {}) }} onCanPlay={event => { event.currentTarget.play().catch(() => {}) }} className="h-full w-full object-cover object-[62%_center]" />
       </motion.div>
       <div className="hero-grade absolute inset-0" />
       <div className="absolute inset-0 opacity-[.14] noise" />
