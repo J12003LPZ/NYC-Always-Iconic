@@ -1,7 +1,8 @@
 import { useRef } from 'react'
-import { motion, useInView, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useInView, useScroll, useSpring, useTransform } from 'framer-motion'
 import { ArrowRight, Clock3, MapPin } from 'lucide-react'
 import { EASE_CINEMATIC, SPRING_SCROLL } from '../motion/motionSystem'
+import { useSiteReducedMotion } from '../motion/useSiteReducedMotion'
 import ArrivalBadge from './ArrivalBadge'
 
 const OPEN = 'inset(0% 0% 0% 0%)'
@@ -109,7 +110,7 @@ function DestinationContent({ destination, entrance }) {
 
 export default function DestinationSection({ destination }) {
   const ref = useRef(null)
-  const reduce = useReducedMotion()
+  const reduce = useSiteReducedMotion()
   const v = VARIANTS[destination.concept] ?? VARIANTS['bridge-depth']
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'start start'] })
   const smooth = useSpring(scrollYProgress, SPRING_SCROLL)
