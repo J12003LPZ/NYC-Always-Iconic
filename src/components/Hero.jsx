@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown, ArrowRight, CloudSun, Compass, Map, Play, Ticket, X } from 'lucide-react'
+import { useSiteReducedMotion } from '../motion/useSiteReducedMotion'
 
 const quickActions = [
   { icon: Compass, title: 'Top Attractions', copy: 'Must-see places', href: '#must-see' },
@@ -11,7 +12,7 @@ const quickActions = [
 
 export default function Hero() {
   const ref = useRef(null)
-  const reduce = useReducedMotion()
+  const reduce = useSiteReducedMotion()
   const [showFilm, setShowFilm] = useState(false)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const scale = useTransform(scrollYProgress, [0, 1], [1, reduce ? 1 : 1.24])
