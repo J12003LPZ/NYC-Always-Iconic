@@ -1,10 +1,11 @@
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { ArrowDownRight } from 'lucide-react'
+import { useSiteReducedMotion } from '../motion/useSiteReducedMotion'
 
 export function JourneyIntro() {
   const ref = useRef(null)
-  const reduce = useReducedMotion()
+  const reduce = useSiteReducedMotion()
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const frameY = useTransform(scrollYProgress, [0, .5, 1], reduce ? [0, 0, 0] : [42, 0, -24])
   const frameScale = useTransform(scrollYProgress, [0, .5, 1], reduce ? [1, 1, 1] : [.96, 1, .985])
