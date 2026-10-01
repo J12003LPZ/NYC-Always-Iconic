@@ -1,8 +1,9 @@
 import { useRef } from 'react'
-import { motion, useMotionValue, useMotionValueEvent, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion'
 import { Navigation2 } from 'lucide-react'
 import { legs } from '../data/journey'
 import { SPRING_FLIGHT, clamp01 } from '../motion/motionSystem'
+import { useSiteReducedMotion } from '../motion/useSiteReducedMotion'
 import { useMediaQuery } from '../motion/useMediaQuery'
 
 const ROUTES = [
@@ -38,7 +39,7 @@ export default function MapFlight({ index }) {
   const route = ROUTES[index % ROUTES.length]
   const ref = useRef(null)
   const pathRef = useRef(null)
-  const reduce = useReducedMotion()
+  const reduce = useSiteReducedMotion()
   const isPhone = useMediaQuery('(max-width: 639px)')
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const smooth = useSpring(scrollYProgress, SPRING_FLIGHT)
