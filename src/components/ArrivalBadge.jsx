@@ -1,11 +1,12 @@
 import { useRef } from 'react'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { EASE_CINEMATIC } from '../motion/motionSystem'
+import { useSiteReducedMotion } from '../motion/useSiteReducedMotion'
 
 export default function ArrivalBadge({ destination }) {
   const ref = useRef(null)
-  const reduce = useReducedMotion()
+  const reduce = useSiteReducedMotion()
   const inView = useInView(ref, { amount: 0.4, once: true })
 
   return (
