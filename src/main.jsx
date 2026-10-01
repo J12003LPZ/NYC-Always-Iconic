@@ -6,7 +6,10 @@ import '@fontsource/dm-sans/500.css'
 import '@fontsource/dm-sans/600.css'
 import '@fontsource/caveat/600.css'
 import App from './App'
+import { applyMotionPreference, resolveMotionPreference } from './motion/motionPreference'
 import './index.css'
+
+applyMotionPreference(document.documentElement, resolveMotionPreference())
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
